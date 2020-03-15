@@ -1,13 +1,9 @@
-FROM ubuntu:14.04
+FROM nginx:latest
 
 MAINTAINER Deepak
 
-RUN apt-get update
+LABEL version="0.0.1"
 
-RUN apt-get install -y nginx
+WORKDIR /usr/share/nginx/html/
 
-ADD index.html /usr/share/nginx/html/index.html
-
-ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
-
-EXPOSE 80
+ADD index.html index.html
